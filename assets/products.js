@@ -1144,12 +1144,15 @@ window.PRODUCTS = [
     "category": "Money-Finance",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Work out any loan payment and full interest in seconds.",
-    "summary": "A browser-based calculator showing monthly payment, total interest, payoff time and a first-year amortization table.",
+    "tagline": "The payment, the payoff date, and what $200 extra really buys.",
+    "summary": "Enter the loan, rate and term to see the monthly payment, total interest and a full amortization schedule. Add an extra monthly payment and the chart shows the shorter payoff and interest saved.",
     "bullets": [
-      "Monthly payment and total interest",
-      "Extra-payment support",
-      "First 12 payments breakdown"
+      "Monthly principal and interest with exact amortization",
+      "Extra monthly payment and interest saved",
+      "Full monthly or yearly schedule",
+      "Balance chart with and without extra",
+      "CSV export of every payment, print view",
+      "Saved locally, no account"
     ],
     "file": "products/Mortgage-and-Loan-Calculator.html"
   },
@@ -1179,12 +1182,15 @@ window.PRODUCTS = [
     "category": "Money-Finance",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Work out the tip and split any bill instantly.",
-    "summary": "A quick calculator for tip, total and per-person split \u2014 perfect for restaurants, trips and group expenses.",
+    "tagline": "Split the bill without doing cents in your head.",
+    "summary": "Tax, tip and rounding are separate decisions. Choose whether the tip is on the pre- or post-tax amount, split evenly or by shares, and every person's amount is shown to the cent.",
     "bullets": [
-      "Tip % and total",
-      "Split between any number of people",
-      "Updates live as you type"
+      "Tip on subtotal or subtotal plus tax",
+      "Even split or weighted shares with names",
+      "Round total up, each share up, or exact cents",
+      "Per-person amounts and collected total",
+      "Saved history of the last ten bills",
+      "CSV export, copy summary, print"
     ],
     "file": "products/Tip-and-Split-Calculator.html"
   },
@@ -1195,12 +1201,15 @@ window.PRODUCTS = [
     "category": "Productivity",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Track daily habits, streaks and consistency.",
-    "summary": "A browser habit tracker with a 7-day view, automatic streaks and everything saved locally in your browser.",
+    "tagline": "Seven days on screen, thirty days measured.",
+    "summary": "Add the habits that matter, set a weekly target, and tick the grid. It tracks current streak, best streak, weekly progress and a 30-day completion rate without guilt-tripping you.",
     "bullets": [
-      "Streak tracking",
-      "7-day visual grid",
-      "Saves automatically in your browser"
+      "Seven-day grid, tap to mark a day",
+      "Weekly goal per habit with progress bar",
+      "Current and best streak, 30-day rate",
+      "Ten built-in icons, unlimited habits",
+      "CSV export and clean print view",
+      "Offline, single file, saved locally"
     ],
     "file": "products/Habit-Tracker.html"
   },
@@ -1230,12 +1239,15 @@ window.PRODUCTS = [
     "category": "Productivity",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Convert length, weight, area, volume and temperature.",
-    "summary": "A fast unit converter covering length, weight, area, volume, time and temperature, all offline in your browser.",
+    "tagline": "Nine categories, exact factors, every unit at once.",
+    "summary": "Length, mass, temperature, volume, area, speed, time, data and pressure. Type a value and see the conversion plus every other unit in the category. Copy the result and it lands in your history.",
     "bullets": [
-      "6 categories, dozens of units",
-      "Temperature conversion",
-      "Instant, offline results"
+      "Nine categories, dozens of units",
+      "Temperature handled with real formulas",
+      "See all units in the category at once",
+      "Swap units, copy result, recent history",
+      "Exact factors where defined",
+      "No ads, no tracking, works offline"
     ],
     "file": "products/Universal-Unit-Converter.html"
   },
@@ -1265,12 +1277,15 @@ window.PRODUCTS = [
     "category": "Health-Wellness",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Check your BMI, calorie needs and healthy weight range.",
-    "summary": "A health calculator for BMI and daily maintenance calories, with a healthy weight range based on your height and activity level.",
+    "tagline": "BMI, BMR, TDEE and macros \u2014 with the math shown.",
+    "summary": "Switch between metric and imperial, then get BMI, a healthy weight range, Mifflin-St Jeor BMR, TDEE and calorie targets. Pick a macro split and log weigh-ins to see the trend.",
     "bullets": [
-      "BMI with category",
-      "Daily maintenance calories",
-      "Healthy weight range"
+      "Metric and imperial, switches cleanly",
+      "BMI category and healthy weight range",
+      "Mifflin-St Jeor BMR and activity-adjusted TDEE",
+      "Cut, maintain and gain calorie targets",
+      "Protein, carb and fat grams for four splits",
+      "Weight log with trend chart and CSV export"
     ],
     "file": "products/BMI-and-Calorie-Calculator.html"
   },
@@ -1953,12 +1968,15 @@ window.PRODUCTS = [
     "category": "Food-Recipes",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Scale any recipe and get exact amounts.",
-    "summary": "A browser tool that scales ingredient lists by any factor, handling fractions neatly.",
+    "tagline": "Scale a recipe and keep the fractions readable.",
+    "summary": "Set the servings you have and the servings you need. Amounts accept fractions and mixed numbers, scale live, and print as a clean shopping list with the method.",
     "bullets": [
-      "Scale by any factor",
-      "Handles fractions",
-      "Halve or double in one click"
+      "Scale by servings or 0.5\u00d7\u20134\u00d7 shortcuts",
+      "Parses 1/2, 1 1/4 and decimals",
+      "Kitchen-friendly fractions and units",
+      "Add, edit and remove ingredients",
+      "Copy shopping list, CSV export, print",
+      "Autosaved locally, works offline"
     ],
     "file": "products/Recipe-Scaler.html"
   },
@@ -1969,12 +1987,15 @@ window.PRODUCTS = [
     "category": "Teachers-Students",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Instant averages and letter grades.",
-    "summary": "A browser grade calculator that computes averages, letter grades and class stats as you type.",
+    "tagline": "Your current grade, and the score still needed.",
+    "summary": "Build weighted categories, add scores, and see the real course grade. The target box calculates exactly what you need on the remaining weight \u2014 including when the answer is 'not possible'.",
     "bullets": [
-      "Instant averages and grades",
-      "Class stats",
-      "Saves your class locally"
+      "Weighted categories and points-based averages",
+      "Current grade, letter and GPA estimate",
+      "Target-grade calculator for remaining work",
+      "Per-assignment percentages and category averages",
+      "CSV export, print, sample gradebook",
+      "Saved offline in the browser"
     ],
     "file": "products/Grade-Calculator.html"
   },
@@ -1985,12 +2006,15 @@ window.PRODUCTS = [
     "category": "Education-Study",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Flip cards to study any question list.",
-    "summary": "A browser flashcard app with flip cards, shuffle, and progress for any question/answer list.",
+    "tagline": "Spaced repetition in one file, no account.",
+    "summary": "Create decks, add cards, and study with a simple spaced-repetition scheduler. Rate Again, Good or Easy and the card returns when it is due. Import lines in bulk and export the deck as CSV.",
     "bullets": [
-      "Flip cards to reveal answers",
-      "Shuffle and next/prev",
-      "Paste any card list"
+      "Multiple decks, unlimited cards",
+      "Spaced repetition: again, good, easy",
+      "Keyboard: space to flip, 1/2/3 to rate",
+      "Bulk import one card per line",
+      "Due, new, learned and accuracy stats",
+      "CSV export, offline, no account"
     ],
     "file": "products/Flashcard-Study-App.html"
   },
@@ -2001,12 +2025,15 @@ window.PRODUCTS = [
     "category": "Travel-Lifestyle",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Generate and tick off a packing list.",
-    "summary": "A browser packing list generator based on trip days, climate and activities, with tick boxes.",
+    "tagline": "Every trip has its own list, sorted by category.",
+    "summary": "Create a trip, load a template, then edit. Items are grouped by documents, clothes, toiletries, tech, health and misc. Tick as you pack and the progress bar does the counting.",
     "bullets": [
-      "Climate and activity aware",
-      "Tick off as you pack",
-      "Print the list"
+      "One list per trip, with dates and destination",
+      "Four templates: weekend, beach, business, winter",
+      "Six categories, quantities, custom items",
+      "Packed progress and per-category counts",
+      "CSV export and print-friendly layout",
+      "Saved offline for bad airport Wi-Fi"
     ],
     "file": "products/Travel-Packing-List.html"
   },
@@ -2017,12 +2044,15 @@ window.PRODUCTS = [
     "category": "Health-Wellness",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Set a goal and track your water each day.",
-    "summary": "A browser water tracker with a daily goal, tap-to-drink glasses and progress bar, saved for today.",
+    "tagline": "A counter with a memory: today, the week, and the streak.",
+    "summary": "Log a glass, a bottle or a custom amount. The page keeps a seven-day chart, a goal streak and a full history, in ml, oz or glasses. Export the lot as CSV.",
     "bullets": [
-      "Daily goal and progress",
-      "Tap to log a glass",
-      "Saves for today"
+      "Quick add a glass, 250 ml, 500 ml or any amount",
+      "Switch between ml, oz and glasses",
+      "Seven-day chart, 7-day average and goal streak",
+      "Editable daily goal and glass size",
+      "Fourteen-day history, CSV export, print",
+      "Offline, single file, saved in the browser"
     ],
     "file": "products/Water-Intake-Tracker.html"
   },
@@ -2049,12 +2079,15 @@ window.PRODUCTS = [
     "category": "Food-Recipes",
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
-    "tagline": "Add items and tick them off while shopping.",
-    "summary": "A browser shopping list that saves items, lets you tick them off and clears what you've bought.",
+    "tagline": "A list that sorts itself by aisle and adds up as you go.",
+    "summary": "Multiple lists, automatic aisle grouping, quantities and prices. It totals the shop, tracks what is already in the basket, and warns you when you pass your budget. Copy it as text or export CSV.",
     "bullets": [
-      "Tick items off",
-      "Clear bought items",
-      "Saves automatically"
+      "Multiple lists with rename and per-list budget",
+      "Auto-detects the aisle from the item name",
+      "Quantity and price per item, live total",
+      "Check items off, clear checked in one tap",
+      "Copy as text, CSV export, print",
+      "Offline, works in the supermarket dead zone"
     ],
     "file": "products/Grocery-List-App.html"
   },
