@@ -383,91 +383,6 @@ window.PRODUCTS = [
     ]
   },
   {
-    "id": "2048-puzzle",
-    "name": "2048 Puzzle",
-    "tagline": "Slide and merge tiles to reach 2048 \u2014 and beyond.",
-    "priceUsd": 1.99,
-    "category": "Games-Interactive",
-    "emoji": "\ud83e\udde9",
-    "file": "products/2048-puzzle.html",
-    "summary": "The addictive sliding-tile puzzle in a clean, offline HTML game. Merge matching numbers, chase the 2048 tile, and beat your best score. Runs in any browser, no install.",
-    "bullets": [
-      "Classic 2048 with smooth controls",
-      "Arrow keys + touch/swipe",
-      "Best score saved in your browser",
-      "Works fully offline",
-      "One self-contained file"
-    ]
-  },
-  {
-    "id": "memory-match",
-    "name": "Memory Match",
-    "tagline": "Flip the cards and clear the board in as few moves as possible.",
-    "priceUsd": 1.99,
-    "category": "Games-Interactive",
-    "emoji": "\ud83c\udccf",
-    "file": "products/memory-match.html",
-    "summary": "A polished memory card game with a move counter and timer. Great for kids and adults, trains focus and recall, and plays instantly in any browser with no install.",
-    "bullets": [
-      "Clean flip-and-match gameplay",
-      "Move counter + timer",
-      "Multiple board sizes",
-      "Kid-friendly and offline",
-      "One self-contained file"
-    ]
-  },
-  {
-    "id": "snake-classic",
-    "name": "Snake Classic",
-    "tagline": "The arcade legend \u2014 eat, grow, and survive.",
-    "priceUsd": 1.99,
-    "category": "Games-Interactive",
-    "emoji": "\ud83d\udc0d",
-    "file": "products/snake-classic.html",
-    "summary": "The timeless snake game rebuilt in crisp HTML. Steer the snake to the food, grow as long as you can, and avoid the walls and your own tail. Includes keyboard and touch controls.",
-    "bullets": [
-      "Smooth grid-based movement",
-      "Keyboard + on-screen controls",
-      "Score and high-score tracking",
-      "Adjustable speed setting",
-      "Runs offline in any browser"
-    ]
-  },
-  {
-    "id": "sudoku-pack",
-    "name": "Sudoku Pack",
-    "tagline": "Endless sudoku \u2014 four difficulty levels, generated for you.",
-    "priceUsd": 1.99,
-    "category": "Games-Interactive",
-    "emoji": "\ud83d\udd22",
-    "file": "products/sudoku-pack.html",
-    "summary": "Play unlimited sudoku puzzles without an account. Pick a difficulty, get a fresh generated puzzle every time, fill in the grid, and check your answers. Perfect for a daily brain workout.",
-    "bullets": [
-      "Unlimited generated puzzles",
-      "Easy / medium / hard / expert",
-      "Mistake checking + timer",
-      "Keyboard + touch input",
-      "No ads, no account, offline"
-    ]
-  },
-  {
-    "id": "word-search-pack",
-    "name": "Word Search Pack",
-    "tagline": "Instant word-search puzzles \u2014 play on screen or print.",
-    "priceUsd": 1.99,
-    "category": "Games-Interactive",
-    "emoji": "\ud83d\udd0d",
-    "file": "products/word-search-pack.html",
-    "summary": "A word-search generator you can play on screen or print. Choose a theme, get a freshly scrambled grid every time, and find every word. Great for classrooms, travel and quiet time.",
-    "bullets": [
-      "Fresh puzzle every time",
-      "Multiple word themes",
-      "Play on screen or print",
-      "Difficulty by grid size",
-      "Self-contained, offline"
-    ]
-  },
-  {
     "id": "invoice-generator",
     "name": "Invoice Generator (Web App)",
     "tagline": "Create and print professional invoices in your browser.",
@@ -1243,11 +1158,14 @@ window.PRODUCTS = [
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
     "tagline": "Split your income the smart way and see what's left.",
-    "summary": "A simple budget tool that applies the 50/30/20 rule to your income and shows a clear breakdown for needs, wants and savings.",
+    "summary": "The 50/30/20 rule with teeth: set your income, tune the split, log expenses into each bucket and see what is actually left before the month ends. Every month is saved separately, offline.",
     "bullets": [
-      "50/30/20 rule built in",
-      "Fine-tune each percentage",
-      "Clear visual breakdown"
+      "Needs, wants and savings buckets with live bars",
+      "Log expenses into the right bucket",
+      "Over-budget warnings, remaining per bucket",
+      "Month-by-month navigation, saved offline",
+      "Adjustable split with a 100% check",
+      "CSV export and print"
     ],
     "file": "products/Budget-Planner.html"
   },
@@ -1291,11 +1209,14 @@ window.PRODUCTS = [
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
     "tagline": "A simple To do / Doing / Done board.",
-    "summary": "A drag-free kanban board to organise tasks into columns, move them along and clear them when done \u2014 saved locally.",
+    "summary": "A real board, not a demo. Four columns, drag and drop, multiple boards, priorities, due dates, tags, search, CSV export and print. Everything saves in the browser the moment you type.",
     "bullets": [
-      "Three-column board",
-      "Move and delete tasks",
-      "Saves automatically in your browser"
+      "Drag cards between To do, Doing, Review and Done",
+      "Multiple boards, rename and switch instantly",
+      "Priority, tag and due date on every card",
+      "Overdue dates flagged in red",
+      "Search and filter, keyboard shortcut /",
+      "CSV export and a clean print view"
     ],
     "file": "products/Kanban-Task-Board.html"
   },
@@ -1323,11 +1244,14 @@ window.PRODUCTS = [
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
     "tagline": "Focus in 25-minute sprints and take real breaks.",
-    "summary": "A pomodoro timer with configurable focus and break lengths, a completion counter and an audio alert when time is up.",
+    "summary": "A timer with a memory. Track tasks by pomodoro, log every session, keep a daily streak, and get a beep plus a desktop notification when time is up. It keeps counting if you reload the page.",
     "bullets": [
-      "Configurable focus & break",
-      "Completion counter",
-      "Sound alert when time is up"
+      "Focus, short break and long break cycles",
+      "Task list with estimates and completed counts",
+      "Session log, daily totals and streak",
+      "Beep plus optional desktop notifications",
+      "Keyboard: space, R to reset, S to skip",
+      "Survives a page reload, CSV export"
     ],
     "file": "products/Pomodoro-Focus-Timer.html"
   },
@@ -3037,23 +2961,23 @@ window.PRODUCTS = [
       "One file you own and can back up"
     ]
   },
-{
-  "id": "bitcoin-invoice-builder",
-  "category": "Freelancing-Remote",
-  "name": "Bitcoin Invoice Builder",
-  "tagline": "Invoice clients in BTC. No processor, no fees.",
-  "priceUsd": 12.99,
-  "emoji": "\ud83e\uddfe",
-  "format": "HTML app",
-  "file": "products/bitcoin-invoice-builder.html",
-  "summary": "A complete invoicing tool in one offline file. Build the invoice, price it in Bitcoin at the rate you choose, and hand the client a payment link that needs no bank, no card and no account. Every invoice is saved in your browser, so nothing leaves your machine.",
-  "bullets": [
-    "Line items, tax, discounts, totals \u2014 automatic",
-    "Converts the total to BTC at your rate, or fetches it live",
-    "Copy a bitcoin: payment link or your address in one click",
-    "Print or save any invoice as a clean PDF",
-    "Multiple invoices stored offline in your browser",
-    "CSV export and JSON backup, no account required"
-  ]
-}
+  {
+    "id": "bitcoin-invoice-builder",
+    "category": "Freelancing-Remote",
+    "name": "Bitcoin Invoice Builder",
+    "tagline": "Invoice clients in BTC. No processor, no fees.",
+    "priceUsd": 12.99,
+    "emoji": "\ud83e\uddfe",
+    "format": "HTML app",
+    "file": "products/bitcoin-invoice-builder.html",
+    "summary": "A complete invoicing tool in one offline file. Build the invoice, price it in Bitcoin at the rate you choose, and hand the client a payment link that needs no bank, no card and no account. Every invoice is saved in your browser, so nothing leaves your machine.",
+    "bullets": [
+      "Line items, tax, discounts, totals \u2014 automatic",
+      "Converts the total to BTC at your rate, or fetches it live",
+      "Copy a bitcoin: payment link or your address in one click",
+      "Print or save any invoice as a clean PDF",
+      "Multiple invoices stored offline in your browser",
+      "CSV export and JSON backup, no account required"
+    ]
+  }
 ];
