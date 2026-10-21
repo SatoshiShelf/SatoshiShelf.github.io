@@ -3036,5 +3036,24 @@ window.PRODUCTS = [
       "Keyboard, mouse & touch support",
       "One file you own and can back up"
     ]
-  }
+  },
+{
+  "id": "bitcoin-invoice-builder",
+  "category": "Freelancing-Remote",
+  "name": "Bitcoin Invoice Builder",
+  "tagline": "Invoice clients in BTC. No processor, no fees.",
+  "priceUsd": 12.99,
+  "emoji": "\ud83e\uddfe",
+  "format": "HTML app",
+  "file": "products/bitcoin-invoice-builder.html",
+  "summary": "A complete invoicing tool in one offline file. Build the invoice, price it in Bitcoin at the rate you choose, and hand the client a payment link that needs no bank, no card and no account. Every invoice is saved in your browser, so nothing leaves your machine.",
+  "bullets": [
+    "Line items, tax, discounts, totals \u2014 automatic",
+    "Converts the total to BTC at your rate, or fetches it live",
+    "Copy a bitcoin: payment link or your address in one click",
+    "Print or save any invoice as a clean PDF",
+    "Multiple invoices stored offline in your browser",
+    "CSV export and JSON backup, no account required"
+  ]
+}
 ];
