@@ -29,34 +29,37 @@ window.PRODUCTS = [
     "id": "starter-kit",
     "category": "Crypto-Web3",
     "name": "Bitcoin Storefront Starter Kit",
-    "tagline": "The exact code running this store. Yours to deploy.",
+    "tagline": "A complete Bitcoin storefront you can deploy this afternoon.",
     "priceUsd": 18.99,
     "emoji": "\ud83d\uded2",
-    "file": "products/bitcoin-storefront-starter-kit.html",
-    "summary": "A working, dependency-free static storefront with live BTC pricing, QR checkout, on-chain payment verification, and instant digital delivery. Drop it on GitHub Pages in 5 minutes.",
+    "file": "products/bitcoin-storefront-starter-kit.zip",
+    "summary": "A real store, not a template mockup: product grid, live BTC pricing, QR checkout, on-chain payment verification and gated downloads. Plain HTML, CSS and JavaScript with no build step and no backend, plus an optional Cloudflare Worker for server-side checks.",
     "bullets": [
-      "Plain HTML/CSS/JS \u2014 no build step",
-      "Live BTC price conversion",
-      "QR + bitcoin: URI checkout",
-      "On-chain txid verification (mempool.space)",
-      "Free hosting instructions included"
+      "Complete storefront: grid, product pages, checkout, downloads",
+      "Live BTC price, QR code, bitcoin: link with the exact amount",
+      "Payment verified against mempool.space before the file unlocks",
+      "Optional Cloudflare Worker for server-side verification",
+      "Demo mode to test the whole flow before going live",
+      "15 files, no framework, no build step, deploy free",
+      "README covers setup, deployment, customization and security"
     ]
   },
   {
     "id": "ai-toolkit",
     "category": "Tech-Code-AI",
     "name": "AI Automation Toolkit",
-    "tagline": "Scripts + prompt templates that save hours every week.",
+    "tagline": "35 prompts that do actual work. Search, fill, copy.",
     "priceUsd": 11.99,
     "emoji": "\ud83e\udd16",
     "file": "products/ai-automation-toolkit.html",
-    "summary": "A curated pack of copy-paste prompts and small scripts for automating repetitive work: writing, research, data cleanup, and content pipelines.",
+    "summary": "A working prompt library, not a PDF: 35 prompts across writing, marketing, code, research, ops and sales. Fill the brackets and the page builds the finished prompt for you. Star the ones you use and export them as Markdown.",
     "bullets": [
-      "50+ battle-tested prompt templates",
-      "Content repurposing pipeline",
-      "Data cleanup scripts",
-      "Outreach + lead-gen templates",
-      "Works with any major AI model"
+      "35 prompts across 6 categories, each with a job",
+      "Fill-in fields build the final prompt for you",
+      "Search, category filters and favorites",
+      "One-click copy, Markdown export of favorites",
+      "Works with any model, no API key needed",
+      "Offline single file, favorites saved in the browser"
     ]
   },
   {
