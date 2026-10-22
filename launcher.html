@@ -179,8 +179,8 @@ function card(p) {
         <div class="cardbtns">
           ${owned
             ? `<button class="btn small" data-open="${esc(p.id)}">&#9654; Open file</button>
-               <a class="btn ghost small" href="product.html?id=${encodeURIComponent(p.id)}">Details</a>`
-            : `<a class="btn ghost small" href="product.html?id=${encodeURIComponent(p.id)}">View &amp; buy</a>`}
+               <a class="btn ghost small" href="p/${encodeURIComponent(p.id)}.html">Details</a>`
+            : `<a class="btn ghost small" href="p/${encodeURIComponent(p.id)}.html">View &amp; buy</a>`}
         </div>
       </div>
     </div>
