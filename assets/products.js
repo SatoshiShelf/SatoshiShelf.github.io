@@ -1891,12 +1891,15 @@ window.PRODUCTS = [
     "category": "Fitness-Sports",
     "priceUsd": 8.99,
     "format": "Python \u00b7 .zip",
-    "tagline": "A HIIT timer that beeps at every change.",
-    "summary": "A terminal interval timer with configurable work, rest, rounds and prepare countdown.",
+    "tagline": "A focused work/rest timer for HIIT, Tabata and sprint intervals.",
+    "summary": "A polished desktop interval timer with a large countdown ring, saved presets, accurate monotonic timing, sound cues and a CSV session log. Pure Python and Tkinter, no third-party dependencies.",
     "bullets": [
-      "Configurable work / rest",
-      "Round tracking",
-      "Audible beep at changes"
+      "Prepare, work, rest and rounds with an optional final rest",
+      "Drift-resistant countdown, pause, skip and fullscreen controls",
+      "Tabata, HIIT, Sprint, EMOM and saved custom presets",
+      "Sound cues, always-on-top mode and keyboard shortcuts",
+      "Session log with CSV export and automatic saved settings",
+      "Python 3 + Tkinter, offline, zero third-party packages"
     ],
     "file": "products/Interval-Timer.zip"
   },
