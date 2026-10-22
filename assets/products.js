@@ -1063,15 +1063,18 @@ window.PRODUCTS = [
     "emoji": "\ud83d\udd33",
     "category": "Marketing-Social",
     "priceUsd": 8.99,
-    "format": "Python \u00b7 .zip",
-    "tagline": "Make QR codes for links, wifi, email or phone.",
-    "summary": "A Python tool that generates high-quality QR codes for URLs, WiFi networks, email addresses and phone numbers.",
+    "format": "HTML \u00b7 browser app",
+    "tagline": "Make QR codes for links, WiFi, email, phone, SMS and contacts.",
+    "summary": "A complete QR studio in a single HTML file: seven code types, live preview, custom colors, PNG and SVG export, and a searchable library saved in your browser.",
     "bullets": [
-      "URL, WiFi, email and phone QR codes",
-      "High error-correction quality",
-      "Saves as PNG"
+      "Link, text, WiFi, email, phone, SMS and vCard",
+      "Live preview with L, M, Q and H error correction",
+      "PNG export up to 4096 px and crisp SVG",
+      "Custom colors, quiet zone and size presets",
+      "Saved library with search and JSON backup",
+      "Keyboard shortcuts, offline, zero dependencies"
     ],
-    "file": "products/QR-Code-Generator.zip"
+    "file": "products/QR-Code-Generator.html"
   },
   {
     "id": "secure-password-generator",

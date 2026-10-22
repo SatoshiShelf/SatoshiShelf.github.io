@@ -26,32 +26,11 @@
     font-size:clamp(22px,5vw,54px); font-weight:900; letter-spacing:.06em; color:rgba(247,147,26,.09); transform:rotate(-20deg); }
   .shotframe { border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#000; }
   .shot { width:100%; display:block; }
-  .tablewrap { overflow-x:auto; border:1px solid var(--border); border-radius:12px; }
-  table.xls { border-collapse:collapse; width:100%; font-size:13.5px; }
-  table.xls th, table.xls td { border-bottom:1px solid var(--border-soft); border-right:1px solid var(--border-soft); padding:8px 11px; text-align:left; white-space:nowrap; }
-  table.xls th { background:var(--card-2); color:var(--accent-2); font-weight:650; }
-  table.xls tr:nth-child(even) td { background:rgba(255,255,255,.015); }
-  .sheetpills { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
-  .pill.sm { font-size:11px; padding:3px 9px; }
-  .docx h3 { margin:18px 0 4px; }
-  .stage h3 { font-size:17px; }
-  .stage p { color:#c3cad6; }
-  .slides { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
-  .slide { background:var(--card-2); border:1px solid var(--border); border-radius:12px; padding:16px; }
-  .slide-n { font-size:11px; color:var(--accent-2); font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-  .slide-t { font-weight:700; margin:8px 0 8px; }
-  .slide ul { margin:0; padding-left:18px; color:var(--muted); font-size:14px; }
-  .filelist ul { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
-  .filelist li code { font-size:12px; background:var(--card-2); border:1px solid var(--border); border-radius:7px; padding:4px 9px; color:#c3cad6; }
-  .codewrap { margin-top:16px; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-  .codebar { background:var(--card-2); padding:8px 13px; font-family:var(--mono); font-size:12px; color:var(--accent-2); border-bottom:1px solid var(--border); }
-  pre.code { margin:0; padding:16px; overflow-x:auto; font-family:var(--mono); font-size:12.5px; line-height:1.55; color:#c3cad6; background:#0c0e13; }
-  .small { font-size:12.5px; }
+  .pfoot { margin-top:20px; text-align:center; }
   .plock { margin-top:22px; text-align:center; background:linear-gradient(140deg,rgba(247,147,26,.15),rgba(255,180,84,.05));
     border:1px solid rgba(247,147,26,.4); border-radius:16px; padding:30px 24px; }
   .plock h2 { margin:0 0 8px; }
   .plock p { color:var(--muted); max-width:520px; margin:0 auto 18px; }
-  .pfoot { margin-top:20px; text-align:center; }
 </style>
 </head>
 <body data-id="qr-code-generator">
@@ -64,34 +43,11 @@
   <div class="phead">
     <span class="kicker">Preview &middot; Marketing Social</span>
     <h1>QR Code Generator</h1>
-    <p class="sub">Make QR codes for links, wifi, email or phone.</p>
-    <div class="pmeta"><span class="pill">Python · .zip</span><span class="price">$8.99 <small style="font-size:12px;color:var(--muted);font-weight:500">one-time</small></span></div>
+    <p class="sub">Links, WiFi, contacts and more — in one offline file.</p>
+    <div class="pmeta"><span class="pill">HTML &middot; browser app</span><span class="price">$8.99 <small style="font-size:12px;color:var(--muted);font-weight:500">one-time</small></span></div>
   </div>
   <div class="stage" id="stage">
-    <div class="filelist"><span class="muted small">Files in the bundle</span><ul><li><code>qr-generator/make_qr.py</code></li><li><code>qr-generator/requirements.txt</code></li><li><code>qr-generator/README.md</code></li></ul></div><div class="codewrap"><div class="codebar">qr-generator/make_qr.py</div><pre class="code">#!/usr/bin/env python3
-# QR Code Generator - make QR codes for links, wifi, email, phone or any text.
-import argparse
-import qrcode
-from qrcode.constants import ERROR_CORRECT_H
-
-def wifi_string(ssid, password, security=&quot;WPA&quot;):
-    return &quot;WIFI:T:%s;S:%s;P:%s;;&quot; % (security, ssid, password)
-
-if __name__ == &quot;__main__&quot;:
-    ap = argparse.ArgumentParser(description=&quot;Generate QR codes.&quot;)
-    ap.add_argument(&quot;data&quot;, nargs=&quot;?&quot;, help=&quot;text or URL&quot;)
-    ap.add_argument(&quot;-o&quot;, &quot;--output&quot;, default=&quot;qr.png&quot;)
-    ap.add_argument(&quot;--wifi&quot;, nargs=2, metavar=(&quot;SSID&quot;, &quot;PASSWORD&quot;))
-    ap.add_argument(&quot;--email&quot;, help=&quot;email address&quot;)
-    ap.add_argument(&quot;--phone&quot;, help=&quot;phone number&quot;)
-    ap.add_argument(&quot;--size&quot;, type=int, default=10)
-    a = ap.parse_args()
-    if a.wifi:
-        data = wifi_string(a.wifi[0], a.wifi[1])
-    elif a.email:
-        data = &quot;mailto:&quot; + a.email
-    elif a.phone:
-        data = &quot;tel:&quot; + a.phone</pre></div><p class="muted small">Preview only — the full, runnable source ships after purchase.</p>
+    <div class="shotframe"><img class="shot" src="img/qr-code-generator.png" alt="QR Code Generator preview" loading="eager"></div><p class="muted small">A live, interactive version runs in your browser after purchase — no install needed.</p>
     <div class="wm">PREVIEW</div>
   </div>
   <div class="plock" id="lock" hidden>
