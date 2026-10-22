@@ -61,6 +61,10 @@
 - [Bitcoin storefront checklist](https://satoshishelf.github.io/go-bitcoin-storefront-checklist.html) — 31 pre-launch checks, printable and free.
 - [Buy digital products with Bitcoin](https://satoshishelf.github.io/go-bitcoin-digital-downloads.html) — the buyer flow with no account or card.
 
+## About and policies
+- [About Satoshi Shelf](https://satoshishelf.github.io/about.html) — who runs the store, why Bitcoin, and press facts.
+- [Policies](https://satoshishelf.github.io/policies.html) — delivery, refunds, privacy, and product license terms.
+
 ## How buying works
 1. Open a product page and choose Buy with Bitcoin.
 2. The checkout shows a live BTC amount and a QR code; pay from any wallet.
