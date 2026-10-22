@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Checkout — Satoshi Shelf</title>
-<meta data-seo="desc" name="description" content="Buy digital products from Satoshi Shelf with Bitcoin. No account, no middlemen, instant delivery after your payment is confirmed on-chain.">
+<meta data-seo="desc" name="description" content="Buy digital products from Satoshi Shelf with Bitcoin over Lightning. No account, no card, instant delivery after payment settles. On-chain fallback available.">
 <meta name="robots" content="noindex,follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +16,12 @@
 <meta data-seo="og:type" property="og:type" content="website">
 <meta property="og:site_name" content="Satoshi Shelf">
 <meta data-seo="og:title" property="og:title" content="Checkout — Satoshi Shelf">
-<meta data-seo="og:desc" property="og:description" content="Buy digital products from Satoshi Shelf with Bitcoin. No account, no middlemen, instant delivery after your payment is confirmed on-chain.">
+<meta data-seo="og:desc" property="og:description" content="Buy digital products from Satoshi Shelf with Bitcoin over Lightning. No account, no card, instant delivery after payment settles. On-chain fallback available.">
 <meta data-seo="og:url" property="og:url" content="https://satoshishelf.github.io/product.html">
 <meta data-seo="og:image" property="og:image" content="https://satoshishelf.github.io/assets/covers/arcade-vault.jpg">
 <meta data-seo="og:image:alt" property="og:image:alt" content="Checkout — Satoshi Shelf">
 <meta data-seo="tw:title" name="twitter:title" content="Checkout — Satoshi Shelf">
-<meta data-seo="tw:desc" name="twitter:description" content="Buy digital products from Satoshi Shelf with Bitcoin. No account, no middlemen, instant delivery after your payment is confirmed on-chain.">
+<meta data-seo="tw:desc" name="twitter:description" content="Buy digital products from Satoshi Shelf with Bitcoin over Lightning. No account, no card, instant delivery after payment settles. On-chain fallback available.">
 <meta data-seo="tw:image" name="twitter:image" content="https://satoshishelf.github.io/assets/covers/arcade-vault.jpg">
 <!-- SOCIAL:END -->
 </head>
@@ -48,7 +48,7 @@
 <footer class="site">
   <div class="wrap">
     <div class="fine" style="border-top:none;margin-top:0;padding-top:0">
-      &copy; <span id="year"></span> Satoshi Shelf &middot; <a href="p/">All products</a> &middot; <a href="policies.html">Policies</a> &middot; Payments to <span style="font-family:var(--mono)">bc1qrs6...gd2z3</span> &middot; All sales final
+      &copy; <span id="year"></span> Satoshi Shelf &middot; <a href="p/">All products</a> &middot; <a href="policies.html">Policies</a> &middot; Lightning payments &middot; On-chain fallback &middot; All sales final
     </div>
   </div>
 </footer>
@@ -69,7 +69,7 @@
 <script src="assets/app.js"></script>
 <script src="assets/qrcode.js"></script>
 <script>
-const { fmtUsd, fmtSats, usdToBtc, btcUri, renderQR, verifyPayment, workerPurchase, isSecure, CFG } = window.Shelf;
+const { fmtUsd, fmtSats, usdToBtc, btcUri, renderQR, verifyPayment, workerPurchase, createLightningInvoice, checkLightningInvoice, isSecure, CFG } = window.Shelf;
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const id = new URLSearchParams(location.search).get("id");
@@ -169,7 +169,7 @@ document.getElementById("head").innerHTML = `
     <h2>Highlights</h2>
     <ul class="checks">${(p.bullets || []).map(b => `<li>${esc(b)}</li>`).join("")}</ul>
     <h2>Delivery</h2>
-    <p>Immediately after your payment is confirmed on-chain, a download link appears right here on this page. No account, no email required — keep the page open until you download.</p>
+    <p>Immediately after your Lightning payment settles, a download link appears right here on this page. The on-chain fallback unlocks after the transaction is seen. No account, no email required — keep the page open until you download.</p>
     <h2>Format</h2>
     <p>${esc(p.format || "Self-contained HTML file")}. ${/\.html$/.test(String(p.file || "")) ? "Open it in any browser, or use your browser's <b>Print &rarr; Save as PDF</b> for an offline copy you own forever." : "Delivered as an instant download after your payment is verified."}</p>
     ${runBlock(p)}
@@ -188,7 +188,7 @@ const box = document.getElementById("buybox");
 box.innerHTML = `
   <div class="flowsteps">
     <div class="s active" id="st1">1&nbsp; Pay</div>
-    <div class="s" id="st2">2&nbsp; Verify</div>
+    <div class="s" id="st2">2&nbsp; Confirm</div>
     <div class="s" id="st3">3&nbsp; Download</div>
   </div>
   <p class="title">${esc(p.name)}</p>
@@ -196,31 +196,52 @@ box.innerHTML = `
   <div class="sats" id="sats">loading live BTC price&hellip;</div>
   <button class="btn ghost block" id="trialBtn" style="margin-bottom:10px">&#9654;&nbsp; Try it free &mdash; 12-second preview</button>
   <div class="trialhint" id="trialHint"></div>
-  <button class="btn block" id="payBtn">Pay with Bitcoin</button>
+  <button class="btn block" id="payBtn">Pay with Lightning</button>
+  <button class="btn ghost block small" id="onchainBtn" style="margin-top:8px">Prefer on-chain? Pay to a Bitcoin address</button>
 
   <div class="pay" id="pay">
-    <div class="qrbox" id="qr"></div>
-    <div class="addr" id="addr" title="Click to copy">${esc(CFG.btcAddress)}</div>
-    <div class="copy-hint" id="hint">Tap the address to copy it</div>
-    <a class="btn ghost block small" id="walletLink" style="margin-bottom:16px">Open in wallet</a>
-    <label class="field" for="txid">Paste your transaction ID after paying</label>
-    <input class="control" id="txid" placeholder="64-character transaction ID" autocomplete="off" spellcheck="false">
-    <button class="btn block" id="verifyBtn" style="margin-top:12px">Verify payment</button>
-    <div class="notice" id="note"></div>
-    <div class="deliver hidden" id="deliver">
-      <h4>&#10004; Payment confirmed</h4>
-      <p class="muted" id="deliverMsg" style="margin:0 0 12px"></p>
-      <a class="btn small block" id="dl" href="#" download>Download now</a>
+    <div id="lnPanel">
+      <div class="payhead"><span class="pill">Lightning</span><span class="muted">Settles in seconds</span></div>
+      <div class="qrbox" id="lnQr"></div>
+      <div class="addr addr-invoice" id="lnInvoice" title="Click to copy the Lightning invoice"></div>
+      <div class="copy-hint" id="lnHint">Tap the invoice to copy it</div>
+      <a class="btn ghost block small" id="lnWallet" style="margin-bottom:16px">Open in Lightning wallet</a>
+      <div class="notice" id="lnNote"></div>
+      <div class="deliver hidden" id="lnDeliver">
+        <h4>&#10004; Payment settled</h4>
+        <p class="muted" id="lnDeliverMsg" style="margin:0 0 12px"></p>
+        <a class="btn small block" id="lnDl" href="#" download>Download now</a>
+      </div>
     </div>
+
+    <details class="onchain" id="onchain">
+      <summary>On-chain payment details</summary>
+      <div class="onchain-box">
+        <div class="qrbox" id="qr"></div>
+        <div class="addr" id="addr" title="Click to copy">${esc(CFG.btcAddress)}</div>
+        <div class="copy-hint" id="hint">Tap the address to copy it</div>
+        <a class="btn ghost block small" id="walletLink" style="margin-bottom:16px">Open in wallet</a>
+        <label class="field" for="txid">Paste your transaction ID after paying</label>
+        <input class="control" id="txid" placeholder="64-character transaction ID" autocomplete="off" spellcheck="false">
+        <button class="btn block" id="verifyBtn" style="margin-top:12px">Verify on-chain payment</button>
+        <div class="notice" id="note"></div>
+        <div class="deliver hidden" id="deliver">
+          <h4>&#10004; Payment verified</h4>
+          <p class="muted" id="deliverMsg" style="margin:0 0 12px"></p>
+          <a class="btn small block" id="dl" href="#" download>Download now</a>
+        </div>
+      </div>
+    </details>
   </div>
 
   <div class="guarantee">
-    <div>&#9889; Instant delivery after payment</div>
+    <div>&#9889; Lightning settlement in seconds</div>
     <div>&#128274; No signup &middot; no card &middot; no tracking</div>
-    <div>&#8383; Paid on-chain to a self-custody address</div>
+    <div>&#8383; On-chain fallback available</div>
   </div>`;
 
 let btcAmt = null;
+let ln = { active: false, timer: null, token: null, paymentRequest: "", expiresAt: 0 };
 
 (function trial() {
   const TRIAL_KEY = "shelf_trial_" + p.id;
@@ -259,46 +280,220 @@ let btcAmt = null;
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) close(); });
 })();
 
-function note(kind, msg) {
-  const n = document.getElementById("note");
+function noteTo(id, kind, msg) {
+  const n = document.getElementById(id);
+  if (!n) return;
   n.className = "notice show " + kind;
   n.textContent = msg;
+}
+
+function note(kind, msg) { noteTo("note", kind, msg); }
+
+function setStep(step) {
+  ["st1", "st2", "st3"].forEach((id, i) => {
+    document.getElementById(id).classList.toggle("active", i < step);
+  });
+}
+
+function safeDownloadUrl(url) {
+  const s = String(url || "");
+  if (/^https:\/\//i.test(s)) return s;
+  if (/^\/[^/]/.test(s)) return s;
+  return "";
+}
+
+function stopLnPoll() {
+  ln.active = false;
+  if (ln.timer) { clearTimeout(ln.timer); ln.timer = null; }
+}
+
+function showLnInvoice(visible) {
+  ["lnQr", "lnInvoice", "lnHint", "lnWallet"].forEach(id => {
+    document.getElementById(id).classList.toggle("hidden", !visible);
+  });
+}
+
+function expiryText() {
+  if (!ln.expiresAt) return "";
+  const left = Math.max(0, Math.floor(ln.expiresAt - Date.now() / 1000));
+  const m = Math.floor(left / 60);
+  const s = left % 60;
+  return m + ":" + String(s).padStart(2, "0");
 }
 
 async function initPrice() {
   try {
     btcAmt = await usdToBtc(p.priceUsd);
-    document.getElementById("sats").innerHTML = fmtSats(btcAmt) + " BTC &middot; " + btcAmt.toFixed(8) + " BTC";
+    document.getElementById("sats").innerHTML = fmtSats(btcAmt) + " &middot; " + btcAmt.toFixed(8) + " BTC";
   } catch (e) {
-    document.getElementById("sats").textContent = "live price unavailable — send the USD equivalent";
+    document.getElementById("sats").textContent = "live price unavailable — the invoice still shows the exact amount";
   }
 }
 initPrice();
 
-document.getElementById("payBtn").addEventListener("click", async () => {
+async function startLightning() {
+  stopLnPoll();
   document.getElementById("pay").classList.add("show");
-  document.getElementById("st1").classList.add("active");
-  if (!btcAmt) await initPrice();
-  const uri = btcUri(CFG.btcAddress, btcAmt, "Satoshi Shelf: " + p.id);
-  renderQR(document.getElementById("qr"), uri);
-  document.getElementById("walletLink").href = uri;
+  document.getElementById("lnPanel").classList.remove("hidden");
+  document.getElementById("onchain").open = false;
+  document.getElementById("lnDeliver").classList.add("hidden");
+  showLnInvoice(false);
+  ln.paymentRequest = "";
+  ln.expiresAt = 0;
+  ln.token = null;
+  document.getElementById("lnInvoice").textContent = "";
+  document.getElementById("lnQr").innerHTML = "";
+  document.getElementById("lnWallet").removeAttribute("href");
+  document.getElementById("lnHint").textContent = "Tap the invoice to copy it";
+  noteTo("lnNote", "info", "Creating a Lightning invoice…");
+  setStep(1);
+
   const btn = document.getElementById("payBtn");
-  btn.textContent = "Waiting for payment\u2026";
   btn.disabled = true;
+  btn.textContent = "Creating invoice…";
+
+  let res;
+  try {
+    res = await createLightningInvoice(p.id);
+  } catch (e) {
+    res = { ok: false, reason: "Error: " + e.message };
+  }
+
+  if (!res.ok) {
+    showLnInvoice(false);
+    noteTo("lnNote", "err", res.reason);
+    document.getElementById("onchain").open = true;
+    btn.disabled = false;
+    btn.textContent = "Try Lightning again";
+    return;
+  }
+
+  ln.active = true;
+  ln.token = res.invoiceToken;
+  ln.paymentRequest = res.paymentRequest;
+  ln.expiresAt = res.expiresAt || 0;
+
+  showLnInvoice(true);
+  const uri = "lightning:" + res.paymentRequest;
+  renderQR(document.getElementById("lnQr"), uri);
+  const inv = document.getElementById("lnInvoice");
+  inv.textContent = res.paymentRequest;
+  inv.title = "Click to copy the Lightning invoice";
+  document.getElementById("lnWallet").href = uri;
+
+  const amount = res.amountSats ? res.amountSats.toLocaleString() + " sats" : "the amount shown in your wallet";
+  noteTo("lnNote", "info", "Scan the QR or open it in a Lightning wallet. Pay " + amount + ". Waiting for settlement…");
+  btn.textContent = "Waiting for payment…";
+  btn.disabled = true;
+  setStep(2);
+  pollLightning();
+}
+
+async function pollLightning() {
+  if (!ln.active) return;
+  const res = await checkLightningInvoice(ln.token);
+  if (!ln.active) return;
+
+  if (res.ok) {
+    stopLnPoll();
+    setStep(3);
+    showLnInvoice(false);
+    noteTo("lnNote", "ok", "Payment settled. Your download is ready.");
+    const dl = document.getElementById("lnDl");
+    dl.href = safeDownloadUrl(res.downloadUrl) || ("product.html?id=" + safeUrl(p.id));
+    dl.setAttribute("download", "");
+    document.getElementById("lnDeliverMsg").textContent = res.paidSats
+      ? "Paid " + Number(res.paidSats).toLocaleString() + " sats over Lightning. Thanks for supporting a small independent store."
+      : "Payment settled. Your secure download link expires in 15 minutes.";
+    document.getElementById("lnDeliver").classList.remove("hidden");
+    const btn = document.getElementById("payBtn");
+    btn.textContent = "Paid \u2713";
+    btn.disabled = true;
+    document.getElementById("onchainBtn").classList.add("hidden");
+    return;
+  }
+
+  if (res.expired) {
+    stopLnPoll();
+    showLnInvoice(false);
+    noteTo("lnNote", "err", "Invoice expired. Create a new one to try again.");
+    const btn = document.getElementById("payBtn");
+    btn.disabled = false;
+    btn.textContent = "Create a new invoice";
+    return;
+  }
+
+  if (res.pending) {
+    noteTo("lnNote", "info", "Waiting for payment… " + (expiryText() ? "Invoice expires in " + expiryText() + "." : ""));
+  } else if (res.retry) {
+    noteTo("lnNote", "info", "Checking again…");
+  } else {
+    noteTo("lnNote", "err", res.reason);
+    if (res.code === "LN_STATUS_UNAVAILABLE") {
+      // Keep polling through a temporary provider hiccup.
+    } else {
+      showLnInvoice(false);
+      const btn = document.getElementById("payBtn");
+      btn.disabled = false;
+      btn.textContent = "Try Lightning again";
+      return;
+    }
+  }
+
+  ln.timer = setTimeout(pollLightning, 2500);
+}
+
+document.getElementById("payBtn").addEventListener("click", startLightning);
+
+document.getElementById("onchainBtn").addEventListener("click", () => {
+  stopLnPoll();
+  document.getElementById("pay").classList.add("show");
+  document.getElementById("lnPanel").classList.add("hidden");
+  document.getElementById("onchain").open = true;
+  setStep(1);
+});
+
+document.getElementById("lnInvoice").addEventListener("click", async () => {
+  if (!ln.paymentRequest) return;
+  const h = document.getElementById("lnHint");
+  const old = h.textContent;
+  try {
+    await navigator.clipboard.writeText(ln.paymentRequest);
+    h.textContent = "Invoice copied \u2713";
+  } catch {
+    h.textContent = "Select and copy manually";
+  }
+  setTimeout(() => { h.textContent = old; }, 1800);
 });
 
 document.getElementById("addr").addEventListener("click", async () => {
   const h = document.getElementById("hint");
   const old = h.textContent;
-  try { await navigator.clipboard.writeText(CFG.btcAddress); h.textContent = "Address copied \u2713"; }
-  catch { h.textContent = "Select and copy manually"; }
+  try {
+    await navigator.clipboard.writeText(CFG.btcAddress);
+    h.textContent = "Address copied \u2713";
+  } catch {
+    h.textContent = "Select and copy manually";
+  }
   setTimeout(() => { h.textContent = old; }, 1600);
+});
+
+document.getElementById("onchain").addEventListener("toggle", async () => {
+  if (!document.getElementById("onchain").open) return;
+  if (!btcAmt) await initPrice();
+  if (!btcAmt) {
+    note("err", "Live price unavailable. Refresh and try again.");
+    return;
+  }
+  const uri = btcUri(CFG.btcAddress, btcAmt, "Satoshi Shelf: " + p.id);
+  renderQR(document.getElementById("qr"), uri);
+  document.getElementById("walletLink").href = uri;
 });
 
 document.getElementById("verifyBtn").addEventListener("click", async () => {
   const btn = document.getElementById("verifyBtn");
-  btn.disabled = true; btn.textContent = "Checking\u2026";
-  document.getElementById("st2").classList.add("active");
+  btn.disabled = true; btn.textContent = "Checking…";
+  setStep(2);
   try {
     if (!btcAmt) await initPrice();
     let res, url = null;
@@ -312,21 +507,20 @@ document.getElementById("verifyBtn").addEventListener("click", async () => {
       note("err", res.reason);
     } else {
       note("info", res.confirmed ? "Confirmed on-chain." : "Seen in mempool — confirmation follows shortly.");
-      document.getElementById("st3").classList.add("active");
+      setStep(3);
       const dl = document.getElementById("dl");
       // Only allow same-origin relative paths or https URLs — never javascript:/data:.
-      const safe = typeof url === "string" && (/^\/[^/]/.test(url) || /^https:\/\//i.test(url)) ? url : null;
-      dl.href = safe || "product.html?id=" + safeUrl(p.id);
+      dl.href = safeDownloadUrl(url) || ("product.html?id=" + safeUrl(p.id));
       dl.setAttribute("download", "");
       document.getElementById("deliverMsg").textContent = res.paidSats
-        ? "Paid " + res.paidSats.toLocaleString() + " sats. Thanks for supporting a middleman-free store."
+        ? "Paid " + Number(res.paidSats).toLocaleString() + " sats. Thanks for supporting a small independent store."
         : "Payment verified. Your secure download is ready — the link expires in 15 minutes.";
       document.getElementById("deliver").classList.remove("hidden");
     }
   } catch (e) {
     note("err", "Error: " + e.message);
   } finally {
-    btn.disabled = false; btn.textContent = "Verify payment";
+    btn.disabled = false; btn.textContent = "Verify on-chain payment";
   }
 });
 </script>

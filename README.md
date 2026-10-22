@@ -1,6 +1,6 @@
 # Satoshi Shelf
 
-An independent, Bitcoin-only digital storefront. Practical templates, spreadsheets, scripts, tools, and browser games — paid on-chain, delivered instantly, no account or card required.
+An independent, Bitcoin-only digital storefront. Practical templates, spreadsheets, scripts, tools, and browser games — paid over Lightning, delivered instantly, no account or card required. On-chain fallback available.
 
 - **Store:** https://satoshishelf.github.io/
 - **All products:** https://satoshishelf.github.io/p/

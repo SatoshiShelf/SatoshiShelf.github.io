@@ -78,25 +78,107 @@
     return (CFG.workerUrl || "").replace(/\/+$/, "");
   }
 
+  function workerDownloadUrl(u) {
+    const s = String(u || "");
+    if (/^https:\/\//i.test(s)) return s;
+    if (/^\/[^/]/.test(s)) return workerBase() + s;
+    return "";
+  }
+
   async function workerPurchase(productId, txid) {
     const base = workerBase();
     if (!base) return { ok: false, reason: "Secure delivery not configured." };
-    const r = await fetch(base + "/verify", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ productId, txid: (txid || "").trim() }),
-    });
+    let r;
+    try {
+      r = await fetch(base + "/verify", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ productId, txid: (txid || "").trim() }),
+      });
+    } catch {
+      return { ok: false, reason: "Could not reach the delivery server. Try again." };
+    }
     let d = {};
     try { d = await r.json(); } catch {}
     if (!r.ok) return { ok: false, reason: d.reason || ("Server error (" + r.status + ").") };
     if (!d.ok) return { ok: false, reason: d.reason || "Payment could not be verified." };
-    const u = d.downloadUrl || "";
-    const downloadUrl = /^https?:\/\//i.test(u) ? u : base + u;
-    return { ok: true, downloadUrl, paidSats: d.paid || null, confirmed: !!d.confirmed };
+    return { ok: true, downloadUrl: workerDownloadUrl(d.downloadUrl), paidSats: d.paid || null, confirmed: !!d.confirmed };
+  }
+
+  // Lightning invoice flow. The Worker creates the invoice through LNbits and
+  // returns an opaque signed token; the browser never receives the API key.
+  async function createLightningInvoice(productId) {
+    const base = workerBase();
+    if (!base) return { ok: false, reason: "Secure delivery not configured." };
+    let r;
+    try {
+      r = await fetch(base + "/invoice", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ productId }),
+      });
+    } catch {
+      return { ok: false, reason: "Could not reach the delivery server. Try again.", fallback: "onchain" };
+    }
+    let d = {};
+    try { d = await r.json(); } catch {}
+    if (!r.ok || !d.ok) {
+      return {
+        ok: false,
+        code: d.code || null,
+        reason: d.reason || ("Lightning invoice failed (" + r.status + ")."),
+        fallback: d.fallback || "onchain",
+      };
+    }
+    if (!d.invoiceToken || !d.paymentRequest) {
+      return { ok: false, reason: "The payment server returned an incomplete invoice.", fallback: "onchain" };
+    }
+    return {
+      ok: true,
+      invoiceToken: d.invoiceToken,
+      paymentRequest: d.paymentRequest,
+      paymentHash: d.paymentHash || null,
+      amountSats: Number(d.amountSats) || 0,
+      expiresAt: Number(d.expiresAt) || 0,
+    };
+  }
+
+  async function checkLightningInvoice(invoiceToken) {
+    const base = workerBase();
+    if (!base) return { ok: false, reason: "Secure delivery not configured." };
+    if (!invoiceToken) return { ok: false, reason: "Missing invoice token. Create a new invoice." };
+    let r;
+    try {
+      r = await fetch(base + "/invoice/status", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ invoiceToken }),
+      });
+    } catch {
+      return { ok: false, retry: true, reason: "Could not reach the delivery server. Retrying may help." };
+    }
+    let d = {};
+    try { d = await r.json(); } catch {}
+    if (d.ok) {
+      return {
+        ok: true,
+        downloadUrl: workerDownloadUrl(d.downloadUrl),
+        paidSats: d.paidSats || null,
+        confirmed: !!d.confirmed,
+      };
+    }
+    return {
+      ok: false,
+      pending: !!d.pending,
+      expired: !!d.expired,
+      code: d.code || null,
+      reason: d.reason || ("Status check failed (" + r.status + ")."),
+    };
   }
 
   window.Shelf = {
     fmtUsd, fmtSats, getBtcPrice, usdToBtc, btcUri, renderQR,
-    verifyPayment, workerPurchase, isSecure: () => !!workerBase(), CFG,
+    verifyPayment, workerPurchase, createLightningInvoice, checkLightningInvoice,
+    isSecure: () => !!workerBase(), CFG,
   };
 })();

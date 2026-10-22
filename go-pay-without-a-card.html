@@ -37,6 +37,7 @@
     <a class="brand" href="index.html"><span class="mark">&#8383;</span> Satoshi Shelf</a>
     <nav class="site">
       <a href="p/">All products</a>
+      <a href="guides.html">Guides</a>
       <a href="launcher.html">Launcher</a>
       <a href="custom.html">Hire me</a>
       <a class="cta" href="p/">Shop</a>
@@ -54,7 +55,7 @@
       <a class="btn ghost" href="index.html#faq">Common questions</a>
     </div>
     <div class="trust">
-      <span>&#8383; <b>On-chain payment</b></span>
+      <span>&#8383; <b>Lightning checkout</b></span>
       <span>&#9889; <b>Instant delivery</b></span>
       <span>&#128274; <b>No account needed</b></span>
     </div>
@@ -94,12 +95,12 @@
     <div class="section-head">
       <div class="kicker">The mechanics</div>
       <h2>What replaces the card</h2>
-      <p class="muted">Instead of a card number, you send Bitcoin to a self-custody address. The store verifies the transaction on-chain and unlocks your file.</p>
+      <p class="muted">Instead of a card number, you pay a Lightning invoice. The store checks settlement server-side and unlocks your file. On-chain is available as a fallback.</p>
     </div>
     <div class="grid cols-3">
-      <div class="card"><div class="body"><h3>QR or address</h3><p class="tag">Scan with any wallet app, or copy the address into the wallet you already have.</p></div></div>
-      <div class="card"><div class="body"><h3>Exact amount shown</h3><p class="tag">The page converts the USD price at the live rate, so you send the right amount the first time.</p></div></div>
-      <div class="card"><div class="body"><h3>Paste your txid</h3><p class="tag">Your wallet gives you a transaction ID. Paste it back and the download unlocks automatically.</p></div></div>
+      <div class="card"><div class="body"><h3>Lightning QR</h3><p class="tag">Scan the invoice with any Lightning-enabled wallet. If you prefer on-chain, copy the fallback address instead.</p></div></div>
+      <div class="card"><div class="body"><h3>Exact amount shown</h3><p class="tag">The page converts the USD price when it creates the invoice, so you pay the right amount the first time.</p></div></div>
+      <div class="card"><div class="body"><h3>No txid for Lightning</h3><p class="tag">The checkout checks the invoice for you and unlocks the download when it settles. On-chain buyers can still paste a txid.</p></div></div>
     </div>
   </div>
 </section>
@@ -131,7 +132,7 @@
     <div class="cols">
       <div>
         <a class="brand" href="index.html"><span class="mark">&#8383;</span> Satoshi Shelf</a>
-        <p class="muted">Practical digital products, paid in Bitcoin. Independent, no middlemen, no tracking.</p>
+        <p class="muted">Practical digital products, paid in Bitcoin over Lightning. Independent, no account, no tracking.</p>
       </div>
       <div>
         <strong class="fhead">Shop</strong>
@@ -145,7 +146,7 @@
       <div>
         <strong class="fhead">Learn</strong>
         <a href="guides.html">All guides</a>
-        <a href="go-bitcoin-digital-downloads.html">Buy with Bitcoin</a>
+        <a href="go-bitcoin-digital-downloads.html">Buy with Lightning</a>
         <a href="go-pay-without-a-card.html">Pay without a card</a>
         <a href="go-bitcoin-only-stores.html">Bitcoin-only stores</a>
         <a href="go-sell-for-bitcoin.html">Sell for Bitcoin</a>
@@ -159,7 +160,7 @@
       </div>
     </div>
     <div class="fine">
-      &copy; <span id="year"></span> Satoshi Shelf &middot; Payments to a self-custody Bitcoin address.<br>
+      &copy; <span id="year"></span> Satoshi Shelf &middot; Bitcoin over Lightning &middot; on-chain fallback available.<br>
       Digital products delivered as files. All sales final.
     </div>
   </div>

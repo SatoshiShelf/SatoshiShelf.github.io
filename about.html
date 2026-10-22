@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About Satoshi Shelf — Independent Bitcoin-Only Store</title>
-<meta name="description" content="Satoshi Shelf is an independent Bitcoin-only digital storefront: 179 practical products, instant file delivery, no account, no card, and no analytics.">
+<meta name="description" content="Satoshi Shelf is an independent Bitcoin-only digital storefront: 179 practical products, Lightning checkout, instant file delivery, no account, no card, and no analytics.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://satoshishelf.github.io/about.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Satoshi Shelf">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="About Satoshi Shelf — Independent Bitcoin-Only Store">
-<meta property="og:description" content="Satoshi Shelf is an independent Bitcoin-only digital storefront: 179 practical products, instant file delivery, no account, no card, and no analytics.">
+<meta property="og:description" content="Satoshi Shelf is an independent Bitcoin-only digital storefront: 179 practical products, Lightning checkout, instant file delivery, no account, no card, and no analytics.">
 <meta property="og:url" content="https://satoshishelf.github.io/about.html">
 <meta property="og:image" content="https://satoshishelf.github.io/assets/og-cover.jpg">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Satoshi Shelf — practical digital products, paid in Bitcoin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About Satoshi Shelf — Independent Bitcoin-Only Store">
-<meta name="twitter:description" content="Satoshi Shelf is an independent Bitcoin-only digital storefront: 179 practical products, instant file delivery, no account, no card, and no analytics.">
+<meta name="twitter:description" content="Satoshi Shelf is an independent Bitcoin-only digital storefront: 179 practical products, Lightning checkout, instant file delivery, no account, no card, and no analytics.">
 <meta name="twitter:image" content="https://satoshishelf.github.io/assets/og-cover.jpg">
 <meta name="twitter:image:alt" content="Satoshi Shelf — practical digital products, paid in Bitcoin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,13 +49,13 @@
   <div class="wrap">
     <div class="eyebrow"><span class="dotlive"></span> Pay with Bitcoin &middot; instant delivery</div>
     <h1>A small store<br><span class="grad">with a simple checkout.</span></h1>
-    <p class="sub">Practical digital downloads, paid directly in Bitcoin. Independent, no middlemen, and deliberately boring about the parts that should be boring.</p>
+    <p class="sub">Practical digital downloads, paid in Bitcoin over Lightning. Independent, no account, and deliberately boring about the parts that should be boring.</p>
     <div class="actions">
       <a class="btn" href="p/">Browse all products</a>
       <a class="btn ghost" href="index.html#faq">Common questions</a>
     </div>
     <div class="trust">
-      <span>&#8383; <b>On-chain payment</b></span>
+      <span>&#8383; <b>Lightning checkout</b></span>
       <span>&#9889; <b>Instant delivery</b></span>
       <span>&#128274; <b>No account needed</b></span>
     </div>
@@ -64,7 +64,7 @@
 
 <section class="section"><div class="wrap"><article class="article">
   <div class="meta"><span>Updated 22 October 2026</span><span>3 minute read</span><span>By Satoshi Shelf</span></div>
-  <p class="lead">Satoshi Shelf is a small, independent store for practical digital downloads. Pay in Bitcoin, get the file, and keep it. No account, no card, and no email required.</p>
+  <p class="lead">Satoshi Shelf is a small, independent store for practical digital downloads. Pay in Bitcoin over Lightning, get the file, and keep it. No account, no card, and no email required.</p>
 
   <h2 id="what-this-is">What this is</h2>
   <p>The shelf holds 179 products across 20 categories: spreadsheets, templates, contracts, Python scripts, browser tools, planners, and games. They are built for people who want a useful file without a subscription, a marketplace account, or a checkout that asks for more information than the sale needs.</p>
@@ -75,26 +75,26 @@
   <ul>
     <li><strong>Access.</strong> A buyer with a wallet can pay from anywhere, even when a card is unavailable or a processor does not serve their country.</li>
     <li><strong>No account.</strong> There is no signup, no password, and no customer profile to manage.</li>
-    <li><strong>Direct settlement.</strong> Payment goes to a self-custody wallet. There is no platform holding the balance or deciding when to release it.</li>
+    <li><strong>Direct settlement.</strong> Lightning payments settle to the store's wallet through its LNbits backend. The checkout does not hold a customer balance or require a top-up.</li>
   </ul>
-  <p>It also has trade-offs. On-chain payments are irreversible, the buyer pays the network fee, and the transaction is public. The <a href="guides.html">guides</a> document the payment flow, the failure modes, and the decisions behind the store rather than pretending those trade-offs do not exist.</p>
+  <p>It also has trade-offs. Lightning payments are irreversible and the buyer pays any routing fees. The on-chain fallback is public and slower. A hosted LNbits instance is a third party that can see invoice metadata; self-hosting removes that dependency. The <a href="guides.html">guides</a> document the payment flow, the failure modes, and the decisions behind the store rather than pretending those trade-offs do not exist.</p>
 
   <h2 id="how-delivery-works">How delivery works</h2>
   <ol>
-    <li>Open a product page and choose <strong>Buy with Bitcoin</strong>.</li>
-    <li>The checkout shows a live BTC amount, a receiving address, and a QR code.</li>
-    <li>Pay from any Bitcoin wallet and submit the transaction ID.</li>
-    <li>The store verifies the transaction on-chain and unlocks a short-lived download link.</li>
+    <li>Open a product page and choose <strong>Pay with Lightning</strong>.</li>
+    <li>The checkout creates a Lightning invoice with the exact amount and shows a QR code.</li>
+    <li>Pay from any Lightning-enabled Bitcoin wallet. An on-chain address and txid verification remain available as a fallback.</li>
+    <li>The store checks the invoice server-side and unlocks a short-lived download link when it settles.</li>
     <li>The file is yours. There is no expiry on the product itself and no subscription.</li>
   </ol>
-  <p>If a payment confirms but the download does not unlock, message <a href="https://t.me/xsaifsaifx" target="_blank" rel="noopener">@xsaifsaifx on Telegram</a> with the product name and transaction ID.</p>
+  <p>If a payment settles but the download does not unlock, message <a href="https://t.me/xsaifsaifx" target="_blank" rel="noopener">@xsaifsaifx on Telegram</a> with the product name and the Lightning payment hash (or the on-chain transaction ID if you used the fallback).</p>
 
   <h2 id="what-we-do-not-do">What we do not do</h2>
   <ul>
     <li>We do not require an account or an email address to buy.</li>
     <li>We do not ask for card details.</li>
     <li>We do not install analytics, advertising pixels, or account-tracking scripts.</li>
-    <li>We do not promise anonymity. Bitcoin transactions are public; the store simply avoids collecting unnecessary customer data.</li>
+    <li>We do not promise anonymity. Lightning invoices are not published on-chain, but the store's LNbits backend can see invoice metadata; on-chain fallback payments are public. The store avoids collecting unnecessary customer data.</li>
   </ul>
   <p>The <a href="policies.html">policies page</a> explains delivery, refunds, privacy, and the limits of the product licenses in plain language.</p>
 
@@ -103,15 +103,15 @@
   <p>The best way to reach a human is <a href="https://t.me/xsaifsaifx" target="_blank" rel="noopener">Telegram</a>. Product questions, broken files, and custom-work requests all go to the same place.</p>
 
   <h2 id="press">Press and brand</h2>
-  <p><strong>Boilerplate:</strong> Satoshi Shelf is an independent Bitcoin-only digital storefront selling practical templates, spreadsheets, scripts, tools, and browser games. Every product is delivered as a file after an on-chain payment, with no account, card, or email required.</p>
+  <p><strong>Boilerplate:</strong> Satoshi Shelf is an independent Bitcoin-only digital storefront selling practical templates, spreadsheets, scripts, tools, and browser games. Every product is delivered as a file after a Lightning payment, with an on-chain fallback, and no account, card, or email required.</p>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Quick fact</th><th>Detail</th></tr></thead>
       <tbody>
         <tr><td>Store</td><td><a href="https://satoshishelf.github.io/">satoshishelf.github.io</a></td></tr>
         <tr><td>Catalog</td><td>179 products across 20 categories</td></tr>
-        <tr><td>Payment</td><td>On-chain Bitcoin to a self-custody address</td></tr>
-        <tr><td>Delivery</td><td>Instant download after on-chain verification</td></tr>
+        <tr><td>Payment</td><td>Bitcoin over Lightning, with on-chain fallback</td></tr>
+        <tr><td>Delivery</td><td>Instant download after Lightning settlement</td></tr>
         <tr><td>Account required</td><td>No</td></tr>
         <tr><td>Analytics</td><td>None installed by the store</td></tr>
       </tbody>
@@ -130,7 +130,7 @@
     <div class="cols">
       <div>
         <a class="brand" href="index.html"><span class="mark">&#8383;</span> Satoshi Shelf</a>
-        <p class="muted">Practical digital products, paid in Bitcoin. Independent, no middlemen, no tracking.</p>
+        <p class="muted">Practical digital products, paid in Bitcoin over Lightning. Independent, no account, no tracking.</p>
       </div>
       <div>
         <strong class="fhead">Shop</strong>
@@ -144,7 +144,7 @@
       <div>
         <strong class="fhead">Learn</strong>
         <a href="guides.html">All guides</a>
-        <a href="go-bitcoin-digital-downloads.html">Buy with Bitcoin</a>
+        <a href="go-bitcoin-digital-downloads.html">Buy with Lightning</a>
         <a href="go-pay-without-a-card.html">Pay without a card</a>
         <a href="go-bitcoin-only-stores.html">Bitcoin-only stores</a>
         <a href="go-sell-for-bitcoin.html">Sell for Bitcoin</a>
@@ -158,7 +158,7 @@
       </div>
     </div>
     <div class="fine">
-      &copy; <span id="year"></span> Satoshi Shelf &middot; Payments to a self-custody Bitcoin address.<br>
+      &copy; <span id="year"></span> Satoshi Shelf &middot; Bitcoin over Lightning &middot; on-chain fallback available.<br>
       Digital products delivered as files. All sales final.
     </div>
   </div>
