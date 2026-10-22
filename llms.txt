@@ -52,6 +52,15 @@
 - [The Money Manager](https://satoshishelf.github.io/p/money-manager.html) — Track income, expenses, debts & savings — automatically. ($8.99)
 - [Ready-Made Website Templates](https://satoshishelf.github.io/p/website-templates.html) — Four complete sites for shops, restaurants & freelancers. ($18.99)
 
+## Guides
+- [All guides](https://satoshishelf.github.io/guides.html) — seller and buyer guides for Bitcoin digital products.
+- [Accept Bitcoin for digital downloads](https://satoshishelf.github.io/go-accept-bitcoin-digital-downloads.html) — wallet, quote, checkout, verification, and delivery.
+- [Verify a Bitcoin payment](https://satoshishelf.github.io/go-verify-bitcoin-payment.html) — the five checks, replay attacks, and confirmation risk.
+- [Sell without Stripe](https://satoshishelf.github.io/go-sell-digital-products-without-stripe.html) — direct Bitcoin checkout and the trade-offs.
+- [Gumroad alternative](https://satoshishelf.github.io/go-gumroad-alternative-bitcoin.html) — fees, tax, control, and migration.
+- [Bitcoin storefront checklist](https://satoshishelf.github.io/go-bitcoin-storefront-checklist.html) — 31 pre-launch checks, printable and free.
+- [Buy digital products with Bitcoin](https://satoshishelf.github.io/go-bitcoin-digital-downloads.html) — the buyer flow with no account or card.
+
 ## How buying works
 1. Open a product page and choose Buy with Bitcoin.
 2. The checkout shows a live BTC amount and a QR code; pay from any wallet.
