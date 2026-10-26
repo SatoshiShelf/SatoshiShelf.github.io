@@ -1332,7 +1332,7 @@ window.PRODUCTS = [
     "priceUsd": 11.99,
     "format": "Excel \u00b7 .xlsx",
     "tagline": "Plan a week of meals and build your shopping list.",
-    "summary": "A 7-day breakfast/lunch/dinner planner with an auto-linked grocery list sheet.",
+    "summary": "A 7-day breakfast/lunch/dinner planner with a separate grocery list sheet.",
     "bullets": [
       "7-day meal grid",
       "Separate grocery list sheet",
