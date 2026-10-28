@@ -2108,11 +2108,11 @@ window.PRODUCTS = [
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
     "tagline": "Reward good behaviour with stars.",
-    "summary": "A colourful star chart for kids with multiple children and tap-to-add stars, saved locally.",
+    "summary": "Multiple children, weekly star charts, chores, goal rewards and a saved star bank, all in one offline page.",
     "bullets": [
-      "Multiple children",
-      "Tap to add stars",
-      "Saved in your browser"
+      "Multiple children and weekly charts",
+      "Star bank, goals and rewards",
+      "CSV and print export"
     ],
     "file": "products/Kids-Star-Chart.html"
   },
@@ -2159,11 +2159,12 @@ window.PRODUCTS = [
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
     "tagline": "Box breathing to calm down and refocus.",
-    "summary": "A guided box-breathing timer (4-4-4-4) with an animated circle to follow.",
+    "summary": "Guided box, 4-7-8, coherent and calm breathing patterns with a custom rhythm, session log and CSV export.",
     "bullets": [
-      "Guided 4-4-4-4 breathing",
-      "Animated circle",
-      "No sound needed"
+      "Guided patterns and custom rhythm",
+      "Animated circle, chime or voice cues",
+      "Saved stats and session log",
+      "CSV and print export"
     ],
     "file": "products/Breathing-Relax-Timer.html"
   },
@@ -2462,12 +2463,12 @@ window.PRODUCTS = [
     "emoji": "\ud83c\udfcb",
     "format": "HTML app",
     "file": "products/One-Rep-Max-Calculator.html",
-    "summary": "Estimate your one-rep max from any set and get a full percentage training table.",
+    "summary": "Five one-rep-max formulas, a full percentage table, warm-up ramp and kg/lb plate calculator, saved locally.",
     "bullets": [
-      "Estimate your 1RM from any set",
-      "Full percentage training table",
-      "Switch between kg and lb",
-      "Works offline"
+      "Five formulas plus an average",
+      "Percentage table and warm-up ramp",
+      "kg/lb plate calculator",
+      "Saved history, CSV and print"
     ]
   },
   {
@@ -2513,12 +2514,12 @@ window.PRODUCTS = [
     "emoji": "\ud83e\uddfe",
     "format": "HTML app",
     "file": "products/JSON-Formatter.html",
-    "summary": "Validate, pretty-print or minify JSON with clear error messages when something is wrong.",
+    "summary": "Format, minify and sort JSON with syntax highlighting, exact line/column errors, copy/download and a local draft.",
     "bullets": [
-      "Pretty-print with 2 or 4 spaces",
-      "Minify in one click",
-      "Clear validation errors",
-      "Works offline"
+      "Format, minify and sort keys",
+      "Syntax highlighting and line numbers",
+      "Line/column errors and stats",
+      "Copy, download and saved draft"
     ]
   },
   {
