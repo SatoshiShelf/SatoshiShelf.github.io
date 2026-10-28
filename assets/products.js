@@ -2143,11 +2143,11 @@ window.PRODUCTS = [
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
     "tagline": "Work out profit, ROI and break-even.",
-    "summary": "A browser calculator for crypto trades showing profit/loss, ROI and break-even sell price including fees.",
+    "summary": "Add every buy to see your true average cost, fee-aware break-even and profit at the current price, with saved snapshots and CSV export.",
     "bullets": [
-      "Profit/loss and ROI",
-      "Break-even price",
-      "Includes trading fees"
+      "Multiple buys with weighted average cost",
+      "Profit, ROI and fee-aware break-even",
+      "Saved snapshots and CSV export"
     ],
     "file": "products/Crypto-Profit-Calculator.html"
   },
@@ -2192,11 +2192,12 @@ window.PRODUCTS = [
     "priceUsd": 8.99,
     "format": "HTML \u00b7 browser app",
     "tagline": "Pick names at random or make fair groups.",
-    "summary": "A browser tool to pick a random name, shuffle a whole class, or split into groups.",
+    "summary": "Paste any list, pick without repeats, shuffle the whole class, or split into fair groups, with saved lists and CSV export.",
     "bullets": [
-      "Pick one or shuffle all",
-      "Split into groups",
-      "Paste any name list"
+      "Pick one, shuffle all or make groups",
+      "No repeats until you reset",
+      "Saved lists and CSV export",
+      "Space, S and G shortcuts"
     ],
     "file": "products/Random-Name-Picker.html"
   },
@@ -2497,12 +2498,12 @@ window.PRODUCTS = [
     "emoji": "\ud83c\udfa8",
     "format": "HTML app",
     "file": "products/Paint-Material-Estimator.html",
-    "summary": "Work out wall area and how many litres and tins of paint a room needs.",
+    "summary": "Measure each room, subtract doors and windows, then turn litres into whole tins from the sizes you can actually buy, with project totals.",
     "bullets": [
-      "Calculates paintable wall area",
-      "Accounts for doors and windows",
-      "Tells you litres and tins needed",
-      "Works offline"
+      "Wall, ceiling and trim areas",
+      "Door and window deductions",
+      "Whole-tin plan with cost",
+      "Multi-room project, CSV and print"
     ]
   },
   {
