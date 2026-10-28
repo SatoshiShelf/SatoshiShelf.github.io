@@ -6,7 +6,7 @@
 - All 179 products: https://satoshishelf.github.io/p/
 - Sitemap: https://satoshishelf.github.io/sitemap.xml
 - Feed: https://satoshishelf.github.io/feed.xml
-- Payments: Bitcoin over Lightning through LNbits, with an on-chain fallback; no account, no email, no card.
+- Payments: Bitcoin on-chain; no account, no email, no card.
 
 ## Categories
 - [Business Startup](https://satoshishelf.github.io/category-business-startup.html) — 23 products
@@ -66,9 +66,9 @@
 - [Policies](https://satoshishelf.github.io/policies.html) — delivery, refunds, privacy, and product license terms.
 
 ## How buying works
-1. Open a product page and choose Pay with Lightning.
-2. The checkout creates a Lightning invoice and shows a QR code; pay from any Lightning-enabled wallet.
-3. The store checks the invoice server-side; once it settles, the download link unlocks automatically. An on-chain fallback is available.
+1. Open a product page and choose Pay with Bitcoin.
+2. The checkout shows a Bitcoin address and QR code with the exact amount; pay from any Bitcoin wallet.
+3. Paste the transaction ID; the store verifies it server-side and the download link unlocks.
 
 ## Good to know
 - Every product is a one-time purchase, not a subscription.
@@ -82,4 +82,4 @@
 - GitHub: https://github.com/SatoshiShelf
 - Telegram: https://t.me/xsaifsaifx
 
-Last updated: 2026-10-22
+Last updated: 2026-10-28

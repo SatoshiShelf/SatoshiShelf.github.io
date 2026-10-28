@@ -1,6 +1,6 @@
 window.STORE_CONFIG = {
   "storeName": "Satoshi Shelf",
-  "tagline": "Digital goods. Paid in Bitcoin over Lightning.",
+  "tagline": "Digital goods. Paid in Bitcoin.",
   "btcAddress": "bc1qrs6leywqgu56d8h5ynw9ynn0e3kdduantgd2z3",
   "workerUrl": "https://satoshi-shelf.xghabra.workers.dev",
   "priceApi": "https://mempool.space/api/v1/prices",

@@ -7,20 +7,7 @@
 <meta name="description" content="Don’t trust a txid screenshot. Check the transaction, receiving address, amount, uniqueness, and confirmations before unlocking a digital download.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://satoshishelf.github.io/go-verify-bitcoin-payment.html">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Satoshi Shelf">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Verify a Bitcoin Payment Before Download | Satoshi Shelf">
-<meta property="og:description" content="Don’t trust a txid screenshot. Check the transaction, receiving address, amount, uniqueness, and confirmations before unlocking a digital download.">
-<meta property="og:url" content="https://satoshishelf.github.io/go-verify-bitcoin-payment.html">
-<meta property="og:image" content="https://satoshishelf.github.io/assets/og-cover.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Satoshi Shelf — practical digital products, paid in Bitcoin">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Verify a Bitcoin Payment Before Download | Satoshi Shelf">
-<meta name="twitter:description" content="Don’t trust a txid screenshot. Check the transaction, receiving address, amount, uniqueness, and confirmations before unlocking a digital download.">
-<meta name="twitter:image" content="https://satoshishelf.github.io/assets/og-cover.jpg">
 <meta name="twitter:image:alt" content="Satoshi Shelf — practical digital products, paid in Bitcoin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +17,19 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23f7931a'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23201400' font-family='Arial' font-weight='bold'>&#8383;</text></svg>">
 <meta name="theme-color" content="#0b0d12">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Verify a Bitcoin Payment Before Delivering a File (2026)","description":"Check the transaction, receiving address, amount, uniqueness, and confirmations before unlocking a digital download.","url":"https://satoshishelf.github.io/go-verify-bitcoin-payment.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://satoshishelf.github.io/go-verify-bitcoin-payment.html"},"image":"https://satoshishelf.github.io/assets/og-cover.jpg","datePublished":"2026-10-22","dateModified":"2026-10-22","inLanguage":"en","isAccessibleForFree":true,"articleSection":"Bitcoin","author":{"@type":"Organization","name":"Satoshi Shelf","url":"https://satoshishelf.github.io/"},"publisher":{"@type":"Organization","name":"Satoshi Shelf","url":"https://satoshishelf.github.io/","logo":{"@type":"ImageObject","url":"https://satoshishelf.github.io/assets/logo.png"}},"about":{"@type":"Thing","name":"Bitcoin payments for digital products"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://satoshishelf.github.io/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://satoshishelf.github.io/guides.html"},{"@type":"ListItem","position":3,"name":"Verify a Bitcoin payment","item":"https://satoshishelf.github.io/go-verify-bitcoin-payment.html"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is a transaction ID enough to prove payment?","acceptedAnswer":{"@type":"Answer","text":"No. A txid proves that a transaction exists, not that it paid you, paid the right amount, or paid for this order. Check the output address, the amount, and the confirmation status. If you reuse one address, also make sure the transaction has not already been used for another order."}},{"@type":"Question","name":"Should I trust a block explorer?","acceptedAnswer":{"@type":"Answer","text":"A public explorer is fine for a small store, but it is a third-party dependency. For production, use your own Bitcoin node or a reputable API with a fallback. Check the response, handle timeouts, and never unlock a file because an API returned an error page."}},{"@type":"Question","name":"How many confirmations are enough?","acceptedAnswer":{"@type":"Answer","text":"There is no universal number. One confirmation is stronger than zero; more is stronger still. The right threshold depends on the product price and your risk tolerance. Write the rule down and apply it consistently."}},{"@type":"Question","name":"Can a buyer reuse another buyer’s transaction ID?","acceptedAnswer":{"@type":"Answer","text":"Yes, if both orders use the same receiving address and your store only checks that the address was paid. Use a fresh address per order, or a unique amount and time window, and mark consumed transaction IDs so they cannot be replayed."}},{"@type":"Question","name":"What about replace-by-fee and reorgs?","acceptedAnswer":{"@type":"Answer","text":"An unconfirmed transaction can be replaced or dropped, and a confirmed transaction can theoretically be reorged. For low-value downloads, a mempool sighting may be an acceptable risk. For high-value files, wait for confirmations and keep the delivery token short-lived."}},{"@type":"Question","name":"Where should the verification code run?","acceptedAnswer":{"@type":"Answer","text":"On the server, never in the browser. The browser can be modified by the buyer. A serverless function or small backend should check the chain and issue the download token."}}]}]</script>
+<!-- SOCIAL:BEGIN (generated by _src/tools/fix_social_meta.py) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Satoshi Shelf">
+<meta property="og:title" content="Verify a Bitcoin Payment Before Download | Satoshi Shelf">
+<meta property="og:description" content="Don’t trust a txid screenshot. Check the transaction, receiving address, amount, uniqueness, and confirmations before unlocking a digital download.">
+<meta property="og:url" content="https://satoshishelf.github.io/go-verify-bitcoin-payment.html">
+<meta property="og:image" content="https://satoshishelf.github.io/assets/og-cover.jpg">
+<meta property="og:image:alt" content="Verify a Bitcoin Payment Before Download | Satoshi Shelf">
+<meta name="twitter:title" content="Verify a Bitcoin Payment Before Download | Satoshi Shelf">
+<meta name="twitter:description" content="Don’t trust a txid screenshot. Check the transaction, receiving address, amount, uniqueness, and confirmations before unlocking a digital download.">
+<meta name="twitter:image" content="https://satoshishelf.github.io/assets/og-cover.jpg">
+<!-- SOCIAL:END -->
 </head>
 <body>
 <header class="site">
@@ -55,7 +55,7 @@
       <a class="btn ghost" href="index.html#faq">Common questions</a>
     </div>
     <div class="trust">
-      <span>&#8383; <b>Lightning checkout</b></span>
+      <span>&#8383; <b>On-chain checkout</b></span>
       <span>&#9889; <b>Instant delivery</b></span>
       <span>&#128274; <b>No account needed</b></span>
     </div>
@@ -159,7 +159,7 @@ async function verifyPayment(txid) {
     <div class="cols">
       <div>
         <a class="brand" href="index.html"><span class="mark">&#8383;</span> Satoshi Shelf</a>
-        <p class="muted">Practical digital products, paid in Bitcoin over Lightning. Independent, no account, no tracking.</p>
+        <p class="muted">Practical digital products, paid in Bitcoin on-chain. Independent, no account, no tracking.</p>
       </div>
       <div>
         <strong class="fhead">Shop</strong>
@@ -173,7 +173,7 @@ async function verifyPayment(txid) {
       <div>
         <strong class="fhead">Learn</strong>
         <a href="guides.html">All guides</a>
-        <a href="go-bitcoin-digital-downloads.html">Buy with Lightning</a>
+        <a href="go-bitcoin-digital-downloads.html">Buy with Bitcoin</a>
         <a href="go-pay-without-a-card.html">Pay without a card</a>
         <a href="go-bitcoin-only-stores.html">Bitcoin-only stores</a>
         <a href="go-sell-for-bitcoin.html">Sell for Bitcoin</a>
@@ -187,7 +187,7 @@ async function verifyPayment(txid) {
       </div>
     </div>
     <div class="fine">
-      &copy; <span id="year"></span> Satoshi Shelf &middot; Bitcoin over Lightning &middot; on-chain fallback available.<br>
+      &copy; <span id="year"></span> Satoshi Shelf &middot; Bitcoin on-chain &middot; verified before download.<br>
       Digital products delivered as files. All sales final.
     </div>
   </div>
