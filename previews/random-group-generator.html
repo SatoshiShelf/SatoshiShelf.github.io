@@ -26,27 +26,13 @@
     font-size:clamp(22px,5vw,54px); font-weight:900; letter-spacing:.06em; color:rgba(247,147,26,.09); transform:rotate(-20deg); }
   .shotframe { border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#000; }
   .shot { width:100%; display:block; }
-  .tablewrap { overflow-x:auto; border:1px solid var(--border); border-radius:12px; }
-  table.xls { border-collapse:collapse; width:100%; font-size:13.5px; }
-  table.xls th, table.xls td { border-bottom:1px solid var(--border-soft); border-right:1px solid var(--border-soft); padding:8px 11px; text-align:left; white-space:nowrap; }
-  table.xls th { background:var(--card-2); color:var(--accent-2); font-weight:650; }
-  table.xls tr:nth-child(even) td { background:rgba(255,255,255,.015); }
-  .sheetpills { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
-  .pill.sm { font-size:11px; padding:3px 9px; }
-  .docx h3 { margin:18px 0 4px; }
-  .stage h3 { font-size:17px; }
-  .stage p { color:#c3cad6; }
-  .slides { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
-  .slide { background:var(--card-2); border:1px solid var(--border); border-radius:12px; padding:16px; }
-  .slide-n { font-size:11px; color:var(--accent-2); font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-  .slide-t { font-weight:700; margin:8px 0 8px; }
-  .slide ul { margin:0; padding-left:18px; color:var(--muted); font-size:14px; }
-  .filelist ul { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
-  .filelist li code { font-size:12px; background:var(--card-2); border:1px solid var(--border); border-radius:7px; padding:4px 9px; color:#c3cad6; }
-  .codewrap { margin-top:16px; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-  .codebar { background:var(--card-2); padding:8px 13px; font-family:var(--mono); font-size:12px; color:var(--accent-2); border-bottom:1px solid var(--border); }
-  pre.code { margin:0; padding:16px; overflow-x:auto; font-family:var(--mono); font-size:12.5px; line-height:1.55; color:#c3cad6; background:#0c0e13; }
-  .small { font-size:12.5px; }
+  .pfeat { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .pfeat span { font-size:12px; color:#c3cad6; border:1px solid var(--border); background:var(--bg-soft); border-radius:999px; padding:5px 10px; }
+  .pnote { margin-top:14px; font-size:13px; color:var(--muted); }
+  .cmds { margin-top:18px; border:1px solid var(--border); border-radius:14px; background:var(--card); overflow:hidden; }
+  .cmds h2 { font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-2); margin:0; padding:13px 16px; border-bottom:1px solid var(--border); }
+  .cmds code { display:block; font-family:var(--mono); font-size:12.5px; color:#c3cad6; padding:9px 16px; border-bottom:1px solid var(--border-soft); overflow-x:auto; white-space:nowrap; }
+  .cmds code:last-child { border-bottom:0; }
   .plock { margin-top:22px; text-align:center; background:linear-gradient(140deg,rgba(247,147,26,.15),rgba(255,180,84,.05));
     border:1px solid rgba(247,147,26,.4); border-radius:16px; padding:30px 24px; }
   .plock h2 { margin:0 0 8px; }
@@ -56,7 +42,7 @@
 </head>
 <body data-id="random-group-generator">
 <div class="pbar">
-  <span class="ptag">&#9654; Free 12s preview</span>
+  <span class="ptag">&#9654; Sample run</span>
   <span class="track"><span class="fill" id="fill"></span></span>
   <span class="pcount" id="pcount">12s</span>
 </div>
@@ -64,42 +50,27 @@
   <div class="phead">
     <span class="kicker">Preview &middot; Teachers Students</span>
     <h1>Random Group Generator</h1>
-    <p class="sub">Split any class into fair random groups.</p>
+    <p class="sub">Make fair random groups in one command.</p>
     <div class="pmeta"><span class="pill">Python · .zip</span><span class="price">$8.99 <small style="font-size:12px;color:var(--muted);font-weight:500">one-time</small></span></div>
   </div>
   <div class="stage" id="stage">
-    <div class="filelist"><span class="muted small">Files in the bundle</span><ul><li><code>random-groups/make_groups.py</code></li><li><code>random-groups/sample-names.txt</code></li><li><code>random-groups/README.md</code></li></ul></div><div class="codewrap"><div class="codebar">random-groups/make_groups.py</div><pre class="code">#!/usr/bin/env python3
-# Random Group Generator - split any list of names into fair random groups.
-import argparse
-import random
-
-def main():
-    ap = argparse.ArgumentParser(description=&quot;Split names into random groups.&quot;)
-    ap.add_argument(&quot;names&quot;, nargs=&quot;*&quot;, help=&quot;names (or use --file)&quot;)
-    ap.add_argument(&quot;-f&quot;, &quot;--file&quot;, help=&quot;text file with one name per line&quot;)
-    ap.add_argument(&quot;-n&quot;, &quot;--groups&quot;, type=int, help=&quot;number of groups&quot;)
-    ap.add_argument(&quot;-s&quot;, &quot;--size&quot;, type=int, help=&quot;max people per group&quot;)
-    ap.add_argument(&quot;--seed&quot;, type=int, help=&quot;reproducible shuffle&quot;)
-    a = ap.parse_args()
-    names = list(a.names)
-    if a.file:
-        with open(a.file, encoding=&quot;utf-8&quot;) as fh:
-            names += [ln.strip() for ln in fh if ln.strip()]
-    if not names:
-        ap.error(&quot;provide names or --file&quot;)
-    if a.seed is not None:
-        random.seed(a.seed)
-    random.shuffle(names)
-    if a.groups:
-        groups = [[] for _ in range(a.groups)]</pre></div><p class="muted small">Preview only — the full, runnable source ships after purchase.</p>
+    <div class="shotframe"><img class="shot" src="img/random-group-generator.png" alt="Sample terminal output from Random Group Generator: Make fair random groups in one command." loading="eager"></div>
+    <div class="pfeat"><span>Groups by count or maximum size</span><span>Optional roles and repeat-avoidance history</span><span>Seed for a reproducible shuffle</span><span>Text, Markdown, CSV or JSON output</span><span>Reads names from a file, arguments or stdin</span></div>
+    <p class="pnote">A still frame from a real run on the kit's sample data. The download is the Python command-line tool shown here — this page is a preview, not a live terminal.</p>
     <div class="wm">PREVIEW</div>
+  </div>
+  <div class="cmds">
+    <h2>Run it like this</h2>
+      <code>python make_groups.py --names team.txt --size 4</code>
+      <code>python make_groups.py --names team.txt --groups 5 --seed 42 --format csv</code>
+      <code>python make_groups.py --names team.txt --size 3 --history history.json</code>
   </div>
   <div class="plock" id="lock" hidden>
     <h2>Preview ended</h2>
-    <p>That was your one-time 12-second preview. This page won't play again on this device — unlock the full product to keep going.</p>
+    <p>That was the 12-second preview. Unlock the full download to run the tool on your own files.</p>
     <a class="btn" href="../product.html?id=random-group-generator" target="_top">Unlock full version &middot; $8.99</a>
   </div>
-  <p class="pfoot muted">This is a watermarked preview. The complete file is delivered instantly after your payment is verified on-chain.</p>
+  <p class="pfoot muted">The complete ZIP is delivered after your payment is verified on-chain.</p>
 </div>
 <script>
 (function () {
