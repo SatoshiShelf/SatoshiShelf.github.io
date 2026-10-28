@@ -1,6 +1,6 @@
 # Satoshi Shelf
 
-An independent, Bitcoin-only digital storefront. Practical templates, spreadsheets, scripts, tools, and browser games — paid over Lightning, delivered instantly, no account or card required. On-chain fallback available.
+An independent, Bitcoin-only digital storefront. Practical templates, spreadsheets, scripts, tools, and browser games — paid on-chain in Bitcoin, delivered after verification, no account or card required.
 
 - **Store:** https://satoshishelf.github.io/
 - **All products:** https://satoshishelf.github.io/p/
@@ -25,4 +25,4 @@ Product archives and payment verification are not part of the public site. The s
 
 ## Contact
 
-Telegram: [@xsaifsaifx](https://t.me/xsaifsaifx) · YouTube: [@SatoshiShelf](https://www.youtube.com/@SatoshiShelf) · Instagram: [@satoshi_shelf](https://www.instagram.com/satoshi_shelf/)
+Telegram: [@xsaifsaifx](https://t.me/xsaifsaifx) · YouTube: [@SatoshiShelf](https://www.youtube.com/@SatoshiShelf)
